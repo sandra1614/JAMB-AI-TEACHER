@@ -1,45 +1,14 @@
 
 "use strict";
 
-// Find the subjects section.
+// Find the important sections of the website.
 const subjectsSection = document.getElementById("subjects");
+const lessonPanel = document.getElementById("lessonPanel");
+const lessonTitle = document.getElementById("lessonTitle");
+const lessonMessage = document.getElementById("lessonMessage");
+const closeLessonButton = document.getElementById("closeLesson");
 
-// Show a small notification on the page.
-function showMessage(title, message) {
-  // Remove an older notification if one exists.
-  const oldToast = document.querySelector(".toast");
-
-  if (oldToast) {
-    oldToast.remove();
-  }
-
-  // Create the notification.
-  const toast = document.createElement("div");
-  toast.className = "toast";
-  toast.setAttribute("role", "status");
-  toast.setAttribute("aria-live", "polite");
-
-  const closeButton = document.createElement("button");
-  closeButton.className = "toast-close";
-  closeButton.type = "button";
-  closeButton.textContent = "×";
-  closeButton.setAttribute("aria-label", "Close notification");
-
-  closeButton.addEventListener("click", function () {
-    toast.remove();
-  });
-
-  const heading = document.createElement("strong");
-  heading.textContent = title;
-
-  const paragraph = document.createElement("p");
-  paragraph.textContent = message;
-
-  toast.append(closeButton, heading, paragraph);
-  document.body.appendChild(toast);
-}
-
-// Scroll to the subjects section.
+// Make the Start Learning buttons scroll to the subjects.
 function startLearning() {
   if (subjectsSection) {
     subjectsSection.scrollIntoView({
@@ -56,29 +25,46 @@ if (startButton) {
   startButton.addEventListener("click", startLearning);
 }
 
-// Connect the bottom call-to-action button.
+// Connect the button near the bottom of the website.
 const ctaButton = document.getElementById("ctaButton");
 
 if (ctaButton) {
   ctaButton.addEventListener("click", startLearning);
 }
 
-// Handle clicks on individual subject cards.
+// Find all the subject buttons.
 const subjectButtons = document.querySelectorAll("[data-subject]");
 
+// Open the learning panel when a student selects a subject.
 subjectButtons.forEach(function (button) {
   button.addEventListener("click", function () {
     const subject = button.dataset.subject;
 
-    showMessage(
-      subject + " selected!",
-      "Your " + subject +
-      " learning area is being prepared. The next step is to add lessons, practice questions, and AI teaching."
-    );
+    if (lessonPanel && lessonTitle && lessonMessage) {
+      lessonTitle.textContent = "Welcome to " + subject + "!";
+
+      lessonMessage.textContent =
+        "You have selected " + subject +
+        ". Your lessons and practice questions will appear here as we build your learning system.";
+
+      lessonPanel.hidden = false;
+
+      lessonPanel.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    }
   });
 });
 
-// Update the active navigation link when clicked.
+// Close the learning panel when the student clicks ×.
+if (closeLessonButton && lessonPanel) {
+  closeLessonButton.addEventListener("click", function () {
+    lessonPanel.hidden = true;
+  });
+}
+
+// Highlight the navigation link the student clicks.
 const navLinks = document.querySelectorAll(".nav-link");
 
 navLinks.forEach(function (link) {
