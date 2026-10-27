@@ -4,66 +4,312 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>JAMB AI Teacher | JAMB 2027</title>
+
+  <meta name="description" content="Prepare for JAMB 2027 with AI-powered lessons, practice questions, and step-by-step explanations.">
+
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
-  <script src="script.js"></script>
+
 <body>
 
-  <header>
-    <div class="logo">JAMB <span>AI TEACHER</span></div>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#subjects">Subjects</a>
-      <a href="#about">About</a>
+  <!-- NAVIGATION -->
+  <header class="header">
+    <a href="#home" class="logo">
+      <span class="logo-icon">J</span>
+      <span>JAMB <strong>AI TEACHER</strong></span>
+    </a>
+
+    <nav class="nav">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#subjects" class="nav-link">Subjects</a>
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#about" class="nav-link">About</a>
     </nav>
+
+    <a href="#subjects" class="nav-button">Start Learning</a>
   </header>
 
-  <section class="hero" id="home">
-    <h1>Your JAMB 2027 Success Starts Here!</h1>
+  <main>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+
+        <div class="announcement">
+          <span class="announcement-dot"></span>
+          Your journey to JAMB 2027 starts now
+        </div>
+
+        <h1>
+          Your JAMB 2027
+          <span>Success Starts Here!</span>
+        </h1>
+
+        <p class="hero-description">
+          Learn difficult topics in simple ways, practise JAMB questions,
+          and study with your personal AI teacher.
+          Your dream university is within reach!
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary" id="startButton">
+            Start Learning <span>→</span>
+          </button>
+
+          <a href="#features" class="btn btn-secondary">
+            Explore Features
+          </a>
+        </div>
+
+        <div class="hero-trust">
+          <div class="trust-icon">✓</div>
+          <p>Learn at your own pace. Practise with confidence.</p>
+        </div>
+
+      </div>
+
+      <div class="hero-visual">
+        <div class="visual-circle circle-one"></div>
+        <div class="visual-circle circle-two"></div>
+
+        <div class="learning-card">
+          <div class="learning-top">
+            <div class="learning-icon">🎓</div>
+            <div>
+              <h3>Your Learning Space</h3>
+              <p>Prepare. Practise. Succeed.</p>
+            </div>
+          </div>
+
+          <div class="progress-heading">
+            <span>Your journey</span>
+            <span class="progress-label">Let's begin!</span>
+          </div>
+
+          <div class="progress-track">
+            <div class="progress-fill"></div>
+          </div>
+
+          <div class="learning-subjects">
+            <div class="mini-subject">
+              <span>📐</span>
+              <div>
+                <strong>Mathematics</strong>
+                <small>Think logically</small>
+              </div>
+            </div>
+
+            <div class="mini-subject">
+              <span>📚</span>
+              <div>
+                <strong>Use of English</strong>
+                <small>Improve your English</small>
+              </div>
+            </div>
+
+            <div class="mini-subject">
+              <span>⚡</span>
+              <div>
+                <strong>Physics</strong>
+                <small>Understand the science</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="ai-message">
+            <span class="ai-avatar">🤖</span>
+            <p>
+              <strong>Your AI teacher says:</strong>
+              Every expert was once a beginner. Let's learn!
+            </p>
+          </div>
+        </div>
+
+        <div class="floating-badge badge-top">
+          <span>✨</span> Learn smarter
+        </div>
+
+        <div class="floating-badge badge-bottom">
+          <span>🎯</span> Target: JAMB 2027
+        </div>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section class="highlights">
+      <div class="highlight-item">
+        <span class="highlight-icon">🧠</span>
+        <div>
+          <strong>Learn Simply</strong>
+          <p>Easy explanations</p>
+        </div>
+      </div>
+
+      <div class="highlight-item">
+        <span class="highlight-icon">📝</span>
+        <div>
+          <strong>Practise Questions</strong>
+          <p>Test your knowledge</p>
+        </div>
+      </div>
+
+      <div class="highlight-item">
+        <span class="highlight-icon">🤖</span>
+        <div>
+          <strong>AI Learning</strong>
+          <p>Study step by step</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUBJECTS SECTION -->
+    <section class="subjects section" id="subjects">
+      <div class="section-heading">
+        <span class="eyebrow">YOUR LEARNING STARTS HERE</span>
+        <h2>Choose Your Subject</h2>
+        <p class="subtitle">
+          Build your knowledge one lesson at a time.
+          Choose a subject and get ready to learn.
+        </p>
+      </div>
+
+      <div class="subject-grid">
+
+        <article class="subject-card mathematics">
+          <div class="subject-top">
+            <div class="subject-icon">📐</div>
+            <span class="subject-number">01</span>
+          </div>
+          <h3>Mathematics</h3>
+          <p>
+            Master formulas, solve calculations, and practise
+            examination questions step by step.
+          </p>
+          <button class="subject-link" data-subject="Mathematics">
+            Start studying <span>→</span>
+          </button>
+        </article>
+
+        <article class="subject-card english">
+          <div class="subject-top">
+            <div class="subject-icon">📚</div>
+            <span class="subject-number">02</span>
+          </div>
+          <h3>Use of English</h3>
+          <p>
+            Improve your grammar, comprehension, vocabulary,
+            oral English, and writing skills.
+          </p>
+          <button class="subject-link" data-subject="Use of English">
+            Start studying <span>→</span>
+          </button>
+        </article>
+
+        <article class="subject-card physics">
+          <div class="subject-top">
+            <div class="subject-icon">⚡</div>
+            <span class="subject-number">03</span>
+          </div>
+          <h3>Physics</h3>
+          <p>
+            Understand scientific concepts, important formulas,
+            and calculations with simple explanations.
+          </p>
+          <button class="subject-link" data-subject="Physics">
+            Start studying <span>→</span>
+          </button>
+        </article>
+
+        <article class="subject-card chemistry">
+          <div class="subject-top">
+            <div class="subject-icon">🧪</div>
+            <span class="subject-number">04</span>
+          </div>
+          <h3>Chemistry</h3>
+          <p>
+            Explore chemical reactions, equations, bonding,
+            calculations, and laboratory concepts.
+          </p>
+          <button class="subject-link" data-subject="Chemistry">
+            Start studying <span>→</span>
+          </button>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features section" id="features">
+      <div class="section-heading">
+        <span class="eyebrow">A BETTER WAY TO PREPARE</span>
+        <h2>Learn More. Fear Less.</h2>
+        <p class="subtitle">
+          Everything is designed to help you prepare for your examination.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon feature-blue">🤖</div>
+          <h3>Your AI Teacher</h3>
+          <p>
+            Get clear explanations and learn difficult topics
+            one step at a time.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon feature-purple">⏱️</div>
+          <h3>Timed Practice</h3>
+          <p>
+            Practise answering questions against the clock
+            to improve your speed.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon feature-green">📊</div>
+          <h3>Track Your Progress</h3>
+          <p>
+            Check your scores and discover the topics
+            you need to practise more.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="cta">
+      <div>
+        <span class="eyebrow cta-eyebrow">YOUR FUTURE MATTERS</span>
+        <h2>Ready to prepare for JAMB 2027?</h2>
+        <p>Start today. Take one lesson at a time. Keep improving.</p>
+      </div>
+
+      <button class="btn cta-button" id="ctaButton">
+        Choose a Subject <span>→</span>
+      </button>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="about">
+    <a href="#home" class="logo footer-logo">
+      <span class="logo-icon">J</span>
+      <span>JAMB <strong>AI TEACHER</strong></span>
+    </a>
+
     <p>
-      Learn with AI teachers, practise JAMB questions,
-      understand difficult topics, and prepare with confidence.
+      Helping students prepare smarter for JAMB 2027.
     </p>
-    <button class="btn" onclick="startLearning()">
-  Start Learning →
-</button>
-  </section>
 
-  <section class="subjects" id="subjects">
-    <h2>Choose Your Subject</h2>
-    <p class="subtitle">Build your knowledge one lesson at a time.</p>
-
-    <div class="subject-grid">
-      <div class="subject-card">
-        <div class="emoji">📐</div>
-        <h3>Mathematics</h3>
-        <p>Learn formulas, solve problems, and practise exam questions.</p>
-      </div>
-
-      <div class="subject-card">
-        <div class="emoji">📚</div>
-        <h3>Use of English</h3>
-        <p>Improve your grammar, comprehension, and vocabulary.</p>
-      </div>
-
-      <div class="subject-card">
-        <div class="emoji">⚡</div>
-        <h3>Physics</h3>
-        <p>Understand concepts, formulas, and calculations step by step.</p>
-      </div>
-
-      <div class="subject-card">
-        <div class="emoji">🧪</div>
-        <h3>Chemistry</h3>
-        <p>Master chemical reactions, equations, and calculations.</p>
-      </div>
-    </div>
-  </section>
-
-  <footer id="about">
-    <p>JAMB AI Teacher © 2026 | Preparing for JAMB 2027</p>
-    <p>Learn smarter. Practise harder. Succeed together.</p>
+    <p class="copyright">
+      © 2026 JAMB AI Teacher. All rights reserved.
+    </p>
   </footer>
 
 </body>
