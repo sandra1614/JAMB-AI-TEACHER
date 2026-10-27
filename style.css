@@ -1145,3 +1145,104 @@ a:focus-visible {
     font-size: 23px;
   }
 }
+
+/* MATHEMATICS LESSON ACTIVITIES */
+
+.lesson-activities {
+  margin-top: 25px;
+  padding-top: 22px;
+  border-top: 1px solid #e5eaf5;
+}
+
+.lesson-activities h3 {
+  margin-bottom: 12px;
+  color: #101c3d;
+  font-size: 20px;
+}
+
+.lesson-activities > p {
+  color: #52617d;
+  line-height: 1.8;
+}
+
+.lesson-answer-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.lesson-answer {
+  padding: 14px;
+  border: 1px solid #dce6ff;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #243453;
+  text-align: left;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.lesson-answer:hover:not(:disabled) {
+  border-color: #2457e6;
+  background: #f3f6ff;
+}
+
+.lesson-answer:disabled {
+  cursor: default;
+  opacity: 0.8;
+}
+
+.lesson-feedback {
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 10px;
+  line-height: 1.7;
+}
+
+.lesson-feedback:empty {
+  display: none;
+}
+
+.lesson-feedback.correct {
+  background: #e6f8ed;
+  color: #17663a;
+}
+
+.lesson-feedback.incorrect {
+  background: #fff0ed;
+  color: #a52d20;
+}
+
+.lesson-navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.lesson-nav-button {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 10px;
+  background: #2457e6;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.lesson-nav-button:disabled {
+  background: #e4e9f3;
+  color: #8994a9;
+  cursor: not-allowed;
+}
+
+@media (max-width: 520px) {
+  .lesson-answer-list {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-navigation {
+    flex-direction: column;
+  }
+}
