@@ -76,14 +76,68 @@ const mathematicsLessons = [
   }
 ];
 
-let currentLessonIndex = 0;
+// ========================================
+// 4. FRACTIONS LESSONS
+// ========================================
+
+const fractionsLessons = [
+  {
+    title: "Lesson 1: Introduction to Fractions",
+    explanation:
+      "A fraction represents part of a whole. For example, 3/4 means 3 parts out of 4 equal parts.",
+    example:
+      "In 3/4, the top number 3 is the numerator. The bottom number 4 is the denominator.",
+    question: "What is the numerator in 2/5?",
+    options: ["5", "2", "7", "3"],
+    answer: 1,
+    reason: "The numerator is the top number. In 2/5, the numerator is 2."
+  },
+  {
+    title: "Lesson 2: Types of Fractions",
+    explanation:
+      "A proper fraction has a numerator smaller than its denominator. An improper fraction has a numerator greater than or equal to its denominator.",
+    example:
+      "Examples: 2/5 is a proper fraction, while 7/4 is an improper fraction.",
+    question: "Which of these is a proper fraction?",
+    options: ["7/3", "5/5", "2/7", "9/4"],
+    answer: 2,
+    reason: "2/7 is a proper fraction because 2 is smaller than 7."
+  },
+  {
+    title: "Lesson 3: Equivalent Fractions",
+    explanation:
+      "Equivalent fractions have different numbers but represent the same value.",
+    example:
+      "Example: 1/2 = 2/4. We multiply both the numerator and denominator by 2.",
+    question: "Which fraction is equivalent to 1/2?",
+    options: ["1/3", "2/4", "3/5", "2/3"],
+    answer: 1,
+    reason: "2/4 is equivalent to 1/2 because both fractions represent the same value."
+  }
+];
 
 // ========================================
-// 4. DISPLAY A LESSON
+// 5. LESSON TRACKING
+// ========================================
+
+let currentLessonIndex = 0;
+let currentTopic = "indices";
+
+function getCurrentLessons() {
+  if (currentTopic === "fractions") {
+    return fractionsLessons;
+  }
+
+  return mathematicsLessons;
+}
+
+// ========================================
+// 6. DISPLAY A LESSON
 // ========================================
 
 function showMathematicsLesson(index) {
-  const lesson = mathematicsLessons[index];
+  const lessons = getCurrentLessons();
+  const lesson = lessons[index];
 
   if (!lessonPanel || !lessonTitle || !lessonMessage || !lesson) {
     return;
@@ -95,7 +149,7 @@ function showMathematicsLesson(index) {
 
   lessonPanel.hidden = false;
 
-  let oldContent = document.getElementById("lessonActivities");
+  const oldContent = document.getElementById("lessonActivities");
 
   if (oldContent) {
     oldContent.remove();
@@ -171,10 +225,10 @@ function showMathematicsLesson(index) {
   nextButton.type = "button";
   nextButton.className = "lesson-nav-button";
   nextButton.textContent = "Next lesson →";
-  nextButton.disabled = index === mathematicsLessons.length - 1;
+  nextButton.disabled = index === lessons.length - 1;
 
   nextButton.addEventListener("click", function () {
-    if (currentLessonIndex < mathematicsLessons.length - 1) {
+    if (currentLessonIndex < getCurrentLessons().length - 1) {
       currentLessonIndex++;
       showMathematicsLesson(currentLessonIndex);
     }
@@ -199,7 +253,7 @@ function showMathematicsLesson(index) {
 }
 
 // ========================================
-// 5. TOPIC MENU
+// 7. TOPIC MENU
 // ========================================
 
 const topicButtons = document.querySelectorAll("[data-topic]");
@@ -208,7 +262,8 @@ topicButtons.forEach(function (button) {
   button.addEventListener("click", function () {
     const topic = button.dataset.topic;
 
-    if (topic === "indices") {
+    if (topic === "indices" || topic === "fractions") {
+      currentTopic = topic;
       currentLessonIndex = 0;
       showMathematicsLesson(currentLessonIndex);
       return;
@@ -216,7 +271,6 @@ topicButtons.forEach(function (button) {
 
     if (lessonPanel && lessonTitle && lessonMessage) {
       const topicNames = {
-        fractions: "Fractions",
         algebra: "Algebra",
         quadratics: "Quadratic Equations"
       };
@@ -243,7 +297,7 @@ topicButtons.forEach(function (button) {
 });
 
 // ========================================
-// 6. SUBJECT BUTTONS
+// 8. SUBJECT BUTTONS
 // ========================================
 
 const subjectButtons = document.querySelectorAll("[data-subject]");
@@ -259,6 +313,7 @@ subjectButtons.forEach(function (button) {
     if (subject === "Mathematics") {
       if (mathTopics) {
         mathTopics.hidden = false;
+
         mathTopics.scrollIntoView({
           behavior: "smooth",
           block: "start"
@@ -295,7 +350,7 @@ subjectButtons.forEach(function (button) {
 });
 
 // ========================================
-// 7. CLOSE LESSON
+// 9. CLOSE LESSON
 // ========================================
 
 if (closeLessonButton && lessonPanel) {
@@ -305,7 +360,7 @@ if (closeLessonButton && lessonPanel) {
 }
 
 // ========================================
-// 8. NAVIGATION LINKS
+// 10. NAVIGATION LINKS
 // ========================================
 
 const navLinks = document.querySelectorAll(".nav-link");
