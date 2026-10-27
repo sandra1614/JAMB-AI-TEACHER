@@ -10,7 +10,9 @@
   <meta name="description" content="Prepare for JAMB 2027 with AI-powered lessons, practice questions, and step-by-step explanations.">
 
   <link rel="stylesheet" href="style.css">
+
   <script src="script.js" defer></script>
+  <script src="practice.js" defer></script>
 </head>
 
 <body>
@@ -25,6 +27,7 @@
     <nav class="nav">
       <a href="#home" class="nav-link active">Home</a>
       <a href="#subjects" class="nav-link">Subjects</a>
+      <a href="#ai-practice" class="nav-link">AI Practice</a>
       <a href="#features" class="nav-link">Features</a>
       <a href="#about" class="nav-link">About</a>
     </nav>
@@ -117,6 +120,14 @@
                 <small>Understand the science</small>
               </div>
             </div>
+
+            <div class="mini-subject">
+              <span>🧪</span>
+              <div>
+                <strong>Chemistry</strong>
+                <small>Explore chemistry</small>
+              </div>
+            </div>
           </div>
 
           <div class="ai-message">
@@ -190,7 +201,7 @@
             Master formulas, solve calculations, and practise
             examination questions step by step.
           </p>
-          <button class="subject-link" data-subject="Mathematics">
+          <button type="button" class="subject-link" data-subject="Mathematics">
             Start studying <span>→</span>
           </button>
         </article>
@@ -206,7 +217,7 @@
             Improve your grammar, comprehension, vocabulary,
             oral English, and writing skills.
           </p>
-          <button class="subject-link" data-subject="Use of English">
+          <button type="button" class="subject-link" data-subject="Use of English">
             Start studying <span>→</span>
           </button>
         </article>
@@ -222,7 +233,7 @@
             Understand scientific concepts, important formulas,
             and calculations with simple explanations.
           </p>
-          <button class="subject-link" data-subject="Physics">
+          <button type="button" class="subject-link" data-subject="Physics">
             Start studying <span>→</span>
           </button>
         </article>
@@ -238,52 +249,51 @@
             Explore chemical reactions, equations, bonding,
             calculations, and laboratory concepts.
           </p>
-          <button class="subject-link" data-subject="Chemistry">
+          <button type="button" class="subject-link" data-subject="Chemistry">
             Start studying <span>→</span>
           </button>
         </article>
 
       </div>
 
-      <!-- NEW STUDENT LEARNING AREA -->
-      
-<!-- MATHEMATICS TOPIC MENU -->
-<div class="math-topics" id="mathTopics" hidden>
-  <div class="section-heading">
-    <span class="eyebrow">MATHEMATICS LEARNING CENTRE</span>
-    <h2>Choose a Topic</h2>
-    <p class="subtitle">
-      Select a topic to study its lesson and practise questions.
-    </p>
-  </div>
+      <!-- MATHEMATICS TOPIC MENU -->
+      <div class="math-topics" id="mathTopics" hidden>
+        <div class="section-heading">
+          <span class="eyebrow">MATHEMATICS LEARNING CENTRE</span>
+          <h2>Choose a Topic</h2>
+          <p class="subtitle">
+            Select a topic to study its lesson and practise questions.
+          </p>
+        </div>
 
-  <div class="math-topic-grid">
-    <button type="button" class="math-topic-card" data-topic="indices">
-      <span>🔢</span>
-      <strong>Indices</strong>
-      <small>Powers and index laws</small>
-    </button>
+        <div class="math-topic-grid">
+          <button type="button" class="math-topic-card" data-topic="indices">
+            <span>🔢</span>
+            <strong>Indices</strong>
+            <small>Powers and index laws</small>
+          </button>
 
-    <button type="button" class="math-topic-card" data-topic="fractions">
-      <span>🍕</span>
-      <strong>Fractions</strong>
-      <small>Work with fractions</small>
-    </button>
+          <button type="button" class="math-topic-card" data-topic="fractions">
+            <span>🍕</span>
+            <strong>Fractions</strong>
+            <small>Work with fractions</small>
+          </button>
 
-    <button type="button" class="math-topic-card" data-topic="algebra">
-      <span>🔠</span>
-      <strong>Algebra</strong>
-      <small>Expressions and equations</small>
-    </button>
+          <button type="button" class="math-topic-card" data-topic="algebra">
+            <span>🔠</span>
+            <strong>Algebra</strong>
+            <small>Expressions and equations</small>
+          </button>
 
-    <button type="button" class="math-topic-card" data-topic="quadratics">
-      <span>📈</span>
-      <strong>Quadratic Equations</strong>
-      <small>Learn to solve equations</small>
-    </button>
-  </div>
-</div>
+          <button type="button" class="math-topic-card" data-topic="quadratics">
+            <span>📈</span>
+            <strong>Quadratic Equations</strong>
+            <small>Learn to solve equations</small>
+          </button>
+        </div>
+      </div>
 
+      <!-- LESSON PANEL -->
       <div class="lesson-panel" id="lessonPanel" hidden>
 
         <div class="lesson-panel-header">
@@ -314,8 +324,92 @@
 
     </section>
 
+    <!-- AI JAMB PRACTICE SECTION -->
+    <section class="ai-practice section" id="ai-practice">
+
+      <div class="section-heading">
+        <span class="eyebrow">PRACTISE WITH YOUR AI TEACHER</span>
+        <h2>AI JAMB Question Practice</h2>
+        <p class="subtitle">
+          Choose a subject, generate JAMB-style practice questions,
+          and learn from an explanation after each answer.
+        </p>
+      </div>
+
+      <div class="practice-box">
+
+        <form id="practiceForm" class="practice-form">
+
+          <div class="practice-field">
+            <label for="practiceSubject">Choose a subject</label>
+            <select id="practiceSubject" name="subject" required>
+              <option value="Use of English">Use of English</option>
+              <option value="Mathematics">Mathematics</option>
+              <option value="Physics">Physics</option>
+              <option value="Chemistry">Chemistry</option>
+            </select>
+          </div>
+
+          <div class="practice-field">
+            <label for="practiceTopic">Topic (optional)</label>
+            <input
+              id="practiceTopic"
+              name="topic"
+              type="text"
+              placeholder="e.g. Indices, bonding, vectors, comprehension"
+              maxlength="120"
+            >
+          </div>
+
+          <div class="practice-field">
+            <label for="questionCount">Number of questions</label>
+            <select id="questionCount" name="count">
+              <option value="5">5 questions</option>
+              <option value="10">10 questions</option>
+            </select>
+          </div>
+
+          <button
+            class="btn btn-primary"
+            id="generateQuestionsButton"
+            type="submit"
+          >
+            Generate AI Questions <span>→</span>
+          </button>
+
+        </form>
+
+        <p
+          id="practiceStatus"
+          class="practice-status"
+          role="status"
+          aria-live="polite"
+        >
+          Choose your subject and select Generate AI Questions to begin.
+        </p>
+
+        <!-- SCORE SUMMARY -->
+        <div id="practiceSummary" class="practice-summary" hidden>
+          <h3 id="practiceSummaryTitle">Your practice results</h3>
+          <p id="practiceScore"></p>
+          <button type="button" class="btn btn-secondary" id="tryAgainButton">
+            Try another practice set
+          </button>
+        </div>
+
+        <!-- QUESTIONS WILL APPEAR HERE -->
+        <div
+          id="practiceQuestions"
+          class="practice-questions"
+          aria-live="polite"
+        ></div>
+
+      </div>
+    </section>
+
     <!-- FEATURES SECTION -->
     <section class="features section" id="features">
+
       <div class="section-heading">
         <span class="eyebrow">A BETTER WAY TO PREPARE</span>
         <h2>Learn More. Fear Less.</h2>
@@ -364,7 +458,7 @@
         <p>Start today. Take one lesson at a time. Keep improving.</p>
       </div>
 
-      <button class="btn cta-button" id="ctaButton">
+      <button type="button" class="btn cta-button" id="ctaButton">
         Choose a Subject <span>→</span>
       </button>
     </section>
@@ -373,6 +467,7 @@
 
   <!-- FOOTER -->
   <footer class="footer" id="about">
+
     <a href="#home" class="logo footer-logo">
       <span class="logo-icon">J</span>
       <span>JAMB <strong>AI TEACHER</strong></span>
@@ -383,6 +478,7 @@
     <p class="copyright">
       © 2026 JAMB AI Teacher. All rights reserved.
     </p>
+
   </footer>
 
 </body>
